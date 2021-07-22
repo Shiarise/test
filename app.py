@@ -14,7 +14,7 @@ def getsizes(dev):
     try:
         # normal files, fails on block devices
         mediasize = os.stat(dev)[6]
-    except IOError, (err_no, err_str):
+    except IOError(err_no, err_str):
         pass
     except:
         pass
