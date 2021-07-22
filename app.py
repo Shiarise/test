@@ -83,7 +83,7 @@ def getsizes(dev):
             buf = array.array('B', range(0,8))  # u64
             r = fcntl.ioctl(fh.fileno(), BLKGETSIZE64, buf, 1)
             mediasize = struct.unpack('Q', buf)[0]
-        except IOError, (err_no, err_str):
+        except IOError(err_no, err_str):
             buf = array.array('B', range(0,4))  # u32
             r = fcntl.ioctl(fh.fileno(), BLKGETSIZE, buf, 1)
             mediasize = struct.unpack('I', buf)[0]*512
